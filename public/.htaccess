@@ -11,7 +11,7 @@ Options All -Indexes
 	Options +FollowSymlinks
 	RewriteEngine On
 	
-	RewriteBase /guest-book/backend/public/
+	RewriteBase /guestbook/public/
 
 	# If you installed CodeIgniter in a subfolder, you will need to
 	# change the following line to match the subfolder you need.

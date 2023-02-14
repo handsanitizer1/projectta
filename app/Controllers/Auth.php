@@ -24,27 +24,27 @@ class Auth extends ResourceController
     public function login() // POST
     {
         $confValidate = [
-            'username' => [
+            'user_Name' => [
                 'rules' => 'required|min_length[3]|max_length[21]|regex_match[/^[a-zA-Z0-9_]+$/]',
                 'errors' => [
-                    'required' => lang('Validation.required', [lang('Validation.username')]),
-                    'min_length' => lang('Validation.incorrect', [lang('Validation.username')]),
-                    'max_length' => lang('Validation.incorrect', [lang('Validation.username')]),
+                    'required' => 'You must fill out this field',
+                    'min_length' => 'Minimum length is 3',
+                    'max_length' => 'Maximum length is 21',
                     'regex_match' => lang('Validation.incorrect', [lang('Validation.username')])
                 ]
             ],
-            'password' => [
+            'user_Password' => [
                 'rules' => 'required|min_length[6]',
                 'errors' => [
-                    'required' => lang('Validation.required', [lang('Validation.password')]),
-                    'min_length' => lang('Validation.incorrect', [lang('Validation.password')])
+                    'required' => 'You must fill out this field',
+                    'min_length' => 'Minimum length is 3'
                 ]
             ]
         ];
 
         if (!$this->validate($confValidate)) {
             $errors_validation = $this->validation->getErrors();
-            if ($this->validation->hasError('username')) {
+            if ($this->validation->hasError('user_Name')) {
                 return $this->respond([
                     'message' => lang('Message.validation_error'),
                     'errors' => $errors_validation
@@ -53,10 +53,10 @@ class Auth extends ResourceController
         }
 
 
-        $username = $this->request->getJsonVar('username');
-        $password = $this->request->getJsonVar('password');
+        $username = $this->request->getJsonVar('user_Name');
+        $password = $this->request->getJsonVar('user_Password');
 
-        $query = "SELECT u.id, u.user_Email, u.user_Role, u.user_Password FROM uers.users u WHERE u.user_Email = ?";
+        $query = "SELECT u.id, u.user_Email, u.user_Role, u.user_Password FROM user.users u WHERE u.user_Email = ?";
         $hash_pass = passwordHash($password);
         $data_user = $this->api_helpers->queryGetFirst($query, [$username]);
         if ($data_user === null) {

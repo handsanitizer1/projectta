@@ -35,13 +35,14 @@ $routes->setAutoRoute(false);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-// $routes->get('/', 'Home::index');
-
+$routes->get('/', 'Pages::landing');
+//$routes->get('/', 'Home::index'); //
 
 // - Restful API - //
 
 // - Auth - //
-$routes->get('/abc', 'Home::index'); //
+$routes->post('/api/login', 'Auth::login'); //
+
 
 /*
  * --------------------------------------------------------------------

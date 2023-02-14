@@ -10,7 +10,7 @@ function generateToken(string $str)
 
 function passwordHash(string $password)
 {
-    return hash('sha256', 'BUKUTAMU' . $password);
+    password_hash('sha256', 'ABC123' . $password);
 }
 
 function getTokenJwt($jwt)
