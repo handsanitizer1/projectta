@@ -25,7 +25,22 @@ class Auth implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        //
+        // var_dump(session()->get('user_role'));
+        // die;
+        if (empty(session()->get('user_role'))) {
+            return redirect('login');
+        }
+        // else {
+        //     if (session()->get('user_role') == 0) {
+        //         return redirect('home');
+        //     } elseif (session()->get('user_role') == 1) {
+        //         return redirect('admin-home');
+        //     } elseif (session()->get('user_role') == 2) {
+        //         return redirect('employee-home');
+        //     } else {
+        //         return redirect()->to('home');
+        //     }
+        // }
     }
 
     /**

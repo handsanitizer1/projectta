@@ -11,5 +11,6 @@ class ApiModel extends Model
     public function __construct()
     {
         $this->db = \Config\Database::connect();
+        $this->db->schema = "users";
     }
 }

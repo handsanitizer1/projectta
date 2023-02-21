@@ -21,10 +21,10 @@ class Api_helpers extends BaseController
     {
         try {
             if ($is_included) {
-                $query = "UPDATE user.user_session us SET is_login = FALSE WHERE us.id_user = (SElECT uss.id_user FROM user.user_session uss WHERE uss.token = ?) and us.is_login = TRUE";
+                $query = "UPDATE users.user_session us SET is_login = FALSE WHERE us.id_user = (SElECT uss.id_user FROM users.user_session uss WHERE uss.token = ?) and us.is_login = TRUE";
                 $this->model->db->query($query, [$token]);
             } else {
-                $query = "UPDATE user.user_session us SET is_login = FALSE WHERE us.id_user = (SElECT uss.id_user FROM user.user_session uss WHERE uss.token = ?) and us.is_login = TRUE and us.token != ?";
+                $query = "UPDATE users.user_session us SET is_login = FALSE WHERE us.id_user = (SElECT uss.id_user FROM users.user_session uss WHERE uss.token = ?) and us.is_login = TRUE and us.token != ?";
                 $this->model->db->query($query, [$token, $token]);
             }
         } catch (Exception $exception) {
