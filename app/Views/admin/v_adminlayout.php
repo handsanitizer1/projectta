@@ -73,7 +73,7 @@
                     <div class="dashboard_bar" style="padding-left: 5px;">
                         Admin Page
                     </div>
-                    as
+
                 </div>
             </div>
         </div>
@@ -93,26 +93,20 @@
                             <span class="nav-text">Company Event</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li><a href="assets/index.html">Dashboard Light</a></li>
-                            <li><a href="assets/index-2.html">Dashboard Dark</a></li>
-                        </ul>
-
-                    </li>
-                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-                            <i class="fas fa-building"></i>
-                            <span class="nav-text">Employee</span>
-                        </a>
-                        <ul aria-expanded="false">
-                            <li><a href="assets/index.html">Employee List</a></li>
-                            <li><a href="assets/index-2.html">Update Employee</a></li>
+                            <li><a href="assets/index.html">Event List</a></li>
+                            <li><a href="assets/index-2.html">Add Event</a></li>
                         </ul>
 
                     </li>
                     <li><a class="" href="javascript:void()" aria-expanded="false">
+                            <i class="fas fa-building"></i>
+                            <span class="nav-text">Employee</span>
+                        </a></li>
+                    <li><a class="" href="javascript:void()" aria-expanded="false">
                             <i class="fas fa-users"></i>
                             <span class="nav-text">User List</span>
                         </a></li>
-                    <li><a class="<?= base_url('logout') ?>" href="javascript:void()" aria-expanded="false">
+                    <li><a class="" href="<?= base_url('logout') ?>" aria-expanded="false">
                             <i class="fas fa-door-open"></i>
                             <span class="nav-text">Sign Out</span>
                         </a></li>
@@ -129,7 +123,26 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-
+                <div class="row">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User Name</th>
+                                <th>User Telephone</th>
+                                <th>User Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($data as $value) : ?>
+                                <tr>
+                                    <td><?= $value['user_name'] ?></td>
+                                    <td><?= $value['user_telephone'] ?></td>
+                                    <td><?= $value['user_email'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         <!--**********************************

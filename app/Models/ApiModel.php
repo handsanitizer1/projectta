@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class ApiModel extends Model
 {
     private $id = 'id';
+    protected $table = "users.users";
 
     public function __construct()
     {

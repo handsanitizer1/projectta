@@ -65,6 +65,11 @@ class Pages extends ResourceController
 
     public function adminHome()
     {
-        return view('admin/v_adminlayout');
+        $dataUser = $this->model->db->table('users.users');
+        $query = "SELECT * FROM users.users u WHERE u.user_role =3";
+        $data_user['data'] = $this->api_helpers->queryGetArray($query);
+        // $data['data'] = $dataUser->orderBy('user_name')->result();
+        return view('admin/v_adminlayout', ['data' => $data_user['data']]);
+        // return view('admin/v_adminlayout');
     }
 }
