@@ -46,6 +46,8 @@ $routes->get('/employee-home', 'Pages::employeeHome');
 //$routes->get('/', 'Home::index'); //
 
 $routes->get('/admin-home', 'Pages::adminHome');
+$routes->get('/user-list', 'Admin::userList');
+$routes->get('/employee-list', 'Admin::employeeList');
 
 // - Restful API - //
 

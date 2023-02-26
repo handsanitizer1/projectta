@@ -24,7 +24,18 @@ class Admin extends ResourceController
     public function userList()
     {
         $dataUser = $this->model->db->table('users.users');
-        $data['data'] = $dataUser->orderBy('user_name')->result();
-        return view('admin-home', ['data' => $data['data']]);
+        $query = "SELECT * FROM users.users u WHERE u.user_role =3";
+        $data_user['data'] = $this->api_helpers->queryGetArray($query);
+        // $data['data'] = $dataUser->orderBy('user_name')->result();
+        return view('admin/v_user_list', ['data' => $data_user['data']]);
+    }
+
+    public function employeeList()
+    {
+        $dataUser = $this->model->db->table('users.employee');
+        $query = "SELECT * FROM users.employee";
+        $data_user['data'] = $this->api_helpers->queryGetArray($query);
+        // $data['data'] = $dataUser->orderBy('user_name')->result();
+        return view('admin/v_employee_list', ['data' => $data_user['data']]);
     }
 }

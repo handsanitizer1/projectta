@@ -17,8 +17,14 @@
     <!-- PAGE TITLE HERE -->
     <title>Admin Dashboard</title>
 
+    <!-- datatable css -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"> -->
+
     <!-- FAVICONS ICON -->
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="assets/vendor/datatables/css/jquery.dataTables.min.css">
     <link href="assets/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
@@ -48,7 +54,7 @@
             Nav header start
         ***********************************-->
         <div class="nav-header">
-            <a href="<?= base_url('employee/home') ?>" class="brand-logo">
+            <a href="<?= base_url('admin-home') ?>" class="brand-logo">
                 <svg class="logo-abbr" width="55" height="55" viewbox="0 0 55 55" fill="none"><img src="assets\images\GuestBookLogo.png" style="width: 150px; height: 50px;">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M27.5 0C12.3122 0 0 12.3122 0 27.5C0 42.6878 12.3122 55 27.5 55C42.6878 55 55 42.6878 55 27.5C55 12.3122 42.6878 0 27.5 0ZM28.0092 46H19L19.0001 34.9784L19 27.5803V24.4779C19 14.3752 24.0922 10 35.3733 10V17.5571C29.8894 17.5571 28.0092 19.4663 28.0092 24.4779V27.5803H36V34.9784H28.0092V46Z" fill="url(#paint0_linear)"></path>
 
@@ -98,11 +104,11 @@
                         </ul>
 
                     </li>
-                    <li><a class="" href="javascript:void()" aria-expanded="false">
+                    <li><a class="" href="<?= base_url('employee-list') ?>" aria-expanded="false">
                             <i class="fas fa-building"></i>
                             <span class="nav-text">Employee</span>
                         </a></li>
-                    <li><a class="" href="javascript:void()" aria-expanded="false">
+                    <li><a class="" href="<?= base_url('user-list') ?>" aria-expanded="false">
                             <i class="fas fa-users"></i>
                             <span class="nav-text">User List</span>
                         </a></li>
@@ -121,28 +127,8 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            <!-- row -->
+
             <div class="container-fluid">
-                <div class="row">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>User Name</th>
-                                <th>User Telephone</th>
-                                <th>User Email</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($data as $value) : ?>
-                                <tr>
-                                    <td><?= $value['user_name'] ?></td>
-                                    <td><?= $value['user_telephone'] ?></td>
-                                    <td><?= $value['user_email'] ?></td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
         <!--**********************************
@@ -186,6 +172,18 @@
     <script src="assets/js/custom.min.js"></script>
     <script src="assets/js/dlabnav-init.js"></script>
     <script src="assets/js/demo.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> -->
+    <script src="assets/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/plugins-init/datatables.init.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#user').DataTable();
+        });
+    </script>
 </body>
 
 </html>
