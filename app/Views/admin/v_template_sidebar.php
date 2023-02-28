@@ -9,8 +9,8 @@
                     <span class="nav-text">Company Event</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="assets/index.html">Event List</a></li>
-                    <li><a href="assets/index-2.html">Add Event</a></li>
+                    <li><a href="<?= base_url('event-list') ?>">Event List</a></li>
+                    <li><a href="<?= base_url('add-event') ?>">Add Event</a></li>
                 </ul>
 
             </li>

@@ -46,7 +46,10 @@ $routes->get('/employee-home', 'Pages::employeeHome');
 //$routes->get('/', 'Home::index'); //
 
 $routes->get('/admin-home', 'Pages::adminHome');
+$routes->get('/add-event', 'Pages::addEvent');
+$routes->get('/edit-event/(:any)', 'Pages::editEvent/$1');
 $routes->get('/user-list', 'Admin::userList');
+$routes->get('/event-list', 'Admin::eventList');
 $routes->get('/employee-list', 'Admin::employeeList');
 
 // - Restful API - //
@@ -56,6 +59,7 @@ $routes->post('/api/login', 'Auth::login'); //
 $routes->post('/api/register', 'Auth::register'); //
 $routes->get('logout', 'Auth::logout'); //
 $routes->post('/api/editProcess', 'User::editData');
+$routes->post('/api/addEventProcess', 'Admin::addEvent');
 
 
 /*

@@ -72,4 +72,16 @@ class Pages extends ResourceController
         return view('admin/v_adminlayout');
         // return view('admin/v_adminlayout');
     }
+
+    public function addEvent()
+    {
+        return view('admin/v_add_event');
+    }
+
+    public function editEvent($id)
+    {
+        $query = "SELECT * FROM event.event u WHERE u.id = ?";
+        $data_user = $this->api_helpers->queryGetFirst($query, [$id]);
+        return view('admin/v_edit_event', ['editUser' => $data_user]);
+    }
 }

@@ -13,27 +13,30 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">User's List / Table</h4>
+                        <h4 class="card-title">Event's List / Table</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example3" class="display table table-striped table-hover" style="min-width: 845px">
                                 <thead>
                                     <tr>
-                                        <th>User Name</th>
-                                        <th>User Telephone</th>
-                                        <th>User Email</th>
+                                        <th>Event Name</th>
+                                        <th>Description</th>
+                                        <th>Event At</th>
+                                        <th>Event Start / End</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($data as $value) : ?>
+                                    <?php foreach ($data as $event) : ?>
                                         <tr>
-                                            <td><?= $value['user_name'] ?></td>
-                                            <td><?= $value['user_telephone'] ?></td>
-                                            <td><?= $value['user_email'] ?></td>
+                                            <td><?= $event['event_name'] ?></td>
+                                            <td><?= $event['event_description'] ?></td>
+                                            <td><?= $event['event_at'] ?></td>
+                                            <td><?= $event['event_start'] . "/" . $event['event_end'] ?></td>
                                             <td>
-                                                <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="<?= base_url('edit-event/' . $event['id']) ?>" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                                <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
